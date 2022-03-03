@@ -12,6 +12,7 @@ struct ARWeatherApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ARViewController.shared)
         }
     }
 }
