@@ -26,7 +26,9 @@ How it Works:
     Write the name of a city, press the retrun key, and tap on the screen in order to create de 3D body. You should look for a flat surface, since the program is designed to build the bodies only when there is a suitable, flat surface the build them on. You can create several bodies by tapping several times.
     Tap on the "eye" button in order to make the search bar appear and disappear. The downwards arrow will close the Aumented Reality view. The turning arrow will eliminate the last 3D body created. The "minus" key will eliminate all the 3D bodies. 
     
-    This is how it should look: ![ARWeather](https://user-images.githubusercontent.com/99818957/170265155-c5a9a4e7-0cb0-4a3f-8d36-7cec21aed27a.jpeg)
+    This is how it should look: 
+    
+ARWeather.jpeg![imagen](https://user-images.githubusercontent.com/99818957/170265334-a4d1db1e-5159-4762-80a7-6b78bb2deb95.png)
 
 
  
