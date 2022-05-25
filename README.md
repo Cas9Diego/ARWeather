@@ -18,7 +18,7 @@ Frameworks
     Foundation
     
  IMPORTANT: BEFORE RUNNING THE APP, THE USER SHOULD GET AN API KEY, WHICH SHOULD BE PASTED IN THE "ApiKey" FILE IN THE PROJECT. You can get a Free API key here --> https://openweathermap.org/api
-
+ IMPORTANT2: Some of the videos required to build the material of the 3D models are missing due to the size of the files, which exceeds the available storage capacity in GitHub. Those videos can be Downloaded here ----> https://drive.google.com/drive/folders/1zxXvS5Dow3HRiL20z0ldD0-9XQbvTF8m?usp=sharing
 How it Works:
                 
     Run the App. You will find an initial screen. Tan on the botton "Choose a 3D body" in order to pick between a cube and a sphere. A Cube is selected by default. 
