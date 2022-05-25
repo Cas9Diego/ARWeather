@@ -27,6 +27,7 @@
 		6C3071A9279DAB2B0042025F /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 6C3071A8279DAB2B0042025F /* Experience.rcproject */; };
 		6C3071AB279DACFE0042025F /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3071AA279DACFE0042025F /* ARViewController.swift */; };
 		6C3071AF279E2F7D0042025F /* WeatherARModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3071AE279E2F7D0042025F /* WeatherARModelManager.swift */; };
+		6C3E5B6E27FEDF9F0015C209 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E5B6D27FEDF9F0015C209 /* ApiKey.swift */; };
 		6C79375A27D03E9700ADC3B8 /* ScrollContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79375927D03E9700ADC3B8 /* ScrollContentView.swift */; };
 		6C79375C27D0428700ADC3B8 /* FullScreenCoverContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79375B27D0428700ADC3B8 /* FullScreenCoverContent.swift */; };
 		6C98AF69279A1B070082B9AB /* WeatherNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C98AF68279A1B070082B9AB /* WeatherNetworkManager.swift */; };
@@ -59,6 +60,7 @@
 		6C3071A8279DAB2B0042025F /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		6C3071AA279DACFE0042025F /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		6C3071AE279E2F7D0042025F /* WeatherARModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherARModelManager.swift; sourceTree = "<group>"; };
+		6C3E5B6D27FEDF9F0015C209 /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		6C79375927D03E9700ADC3B8 /* ScrollContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollContentView.swift; sourceTree = "<group>"; };
 		6C79375B27D0428700ADC3B8 /* FullScreenCoverContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverContent.swift; sourceTree = "<group>"; };
 		6C98AF68279A1B070082B9AB /* WeatherNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManager.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				6C3071AC279DDC760042025F /* Models */,
 				6C3071A8279DAB2B0042025F /* Experience.rcproject */,
 				6C98AF68279A1B070082B9AB /* WeatherNetworkManager.swift */,
+				6C3E5B6D27FEDF9F0015C209 /* ApiKey.swift */,
 				6C98AF6A279A2FC20082B9AB /* WeatherData.swift */,
 			);
 			path = WeatherModel;
@@ -271,6 +274,7 @@
 				6C3071AF279E2F7D0042025F /* WeatherARModelManager.swift in Sources */,
 				6CCBF7FD2799DEB300D945B6 /* ARWeatherApp.swift in Sources */,
 				6C98AF6D279A39D00082B9AB /* WeatherModel.swift in Sources */,
+				6C3E5B6E27FEDF9F0015C209 /* ApiKey.swift in Sources */,
 				6C79375A27D03E9700ADC3B8 /* ScrollContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

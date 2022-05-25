@@ -6,53 +6,68 @@
 //
 
 import SwiftUI
+import RealityKit
 
 struct ScrollContentView: View {
     var models = ["1", "2", "3", "4"]
     @Environment(\.colorScheme) var colorScheme
+    @Binding var bodyOptions: Bool
+    @Binding var modelIndex: Int
     var body: some View {
-        ScrollView(){
-            VStack(spacing: 30){
-                ForEach(0...1, id: \.self){ index in
-                    Button{
-                        ARViewController.shared.selectedModel = index
-                    } label: {
-                        if colorScheme == .dark{
-                            Image(uiImage: UIImage(named: models[index+2])!)
-                                .resizable()
-                            //Se usa reszable porque en swiftui las imagenes no son modificables por default
-                                .frame(width: 220, height: 220)
-
-                                .cornerRadius(15)
-
-                        } else {
-                        Image(uiImage: UIImage(named: models[index])!)
-                                .resizable()
-                            //Se usa resizable porque en swiftui las imagenes no son modificables por default
-                                .frame(width: 220, height: 220)
-
-                                .cornerRadius(15)
-
+        ZStack {
+            LinearGradient( gradient: Gradient(colors:  [.blue.opacity(0.1), .blue.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            VStack {
+                Button {
+                    bodyOptions = false
+                } label: {
+                    Text ("Cancel")
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                ScrollView(){
+                    VStack(spacing:50){
+                        ForEach(0...1, id: \.self){ index in
+                            Button{
+                                ARViewController.shared.selectedModel = index
+                                bodyOptions = false
+                                
+                                if colorScheme == .dark { modelIndex = index+2 } else {
+                                    modelIndex = index
+                                }
+                                
+                            } label: {
+                                
+                                ZStack {
+                                    ZStack {
+                                        Image(uiImage: UIImage(named: models[index])!)
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.width*(2.4/5), height: UIScreen.main.bounds.height*(1.5/5))
+                                        
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width*(3.3/5), height: UIScreen.main.bounds.height*(1.9/5))
+                                }
+                                .background(Color.white.opacity(0.5))
+                                .cornerRadius(16)
+                                .overlay(  RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.black, lineWidth: 0.5))
+                            }
+                            
+                            .buttonStyle(PlainButtonStyle())
+                            
                         }
                         
                     }
-                 
-                    .buttonStyle(PlainButtonStyle())
-
-                }
-            
+                    
+                    
+                } .padding()
             }
-
-        
         }
-   
-        .padding(.top, 240)
-        
     }
 }
 
 struct ScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollContentView()
+        ScrollContentView( bodyOptions: .constant(true), modelIndex: .constant(1))
     }
 }

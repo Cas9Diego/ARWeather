@@ -9,26 +9,14 @@ import Foundation
 import SwiftUI
 
 public class weatherNetworkManager: ObservableObject {
-    @Published var receivedWeatherData : WeatherModel? {
-        didSet {
-            print ("didSet")
-        }
-    }
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=1bb288b0c6fd7be4a30ea81afd49fce6&units=metric"
+    @Published var receivedWeatherData : WeatherModel?
     
-//    let weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=1bb288b0c6fd7be4a30ea81afd49fce6"
-    
-//    let weatherURL = "http://api.openweathermap.org/data/2.5/weather?q="
-    //Fetch data
-
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(ApiKey().apiKey())&units=metric"
     
     public func fetchData (cityName: String){
         
         let weatherURLString = "\(weatherURL)&q=\(cityName)"
 
-        print ("Esto es weatherString \(weatherURLString)")
-
-        
         //URL
         if let url = URL(string: weatherURLString) {
            
@@ -68,7 +56,6 @@ public class weatherNetworkManager: ObservableObject {
         let decoder = JSONDecoder()
         do{
             let decodedData = try decoder.decode(WeatherData.self, from: receivedData)
-            //Se toma el valor almacenado en reveivedData y se pasa por el struct WeatherData
             
             return decodedData
         } catch {
@@ -79,14 +66,11 @@ public class weatherNetworkManager: ObservableObject {
     
     private func convertDecodedDataToUsableForm (decodedData: WeatherData) -> WeatherModel {
         let weatherData = WeatherModel(cityName: decodedData.name, temperature: decodedData.main.temp, conditionID: decodedData.weather[0].id)
-        
+    
         return weatherData
     }
-    
     //Pass it to the main view
-    
     private func passData(weatherData: WeatherModel)  {
         receivedWeatherData = weatherData
-//        return receivedWeatherData ?? []
     }
 }

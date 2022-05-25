@@ -25,29 +25,20 @@ public class WeatherARModelManager {
         return conditionModel
 
         }
-    
     //Create Ball and text
     // First create de ball
     private func weatherConditionModel (condition: String) -> ModelEntity{
         
         //Mesh
-        
-        
-        
         var ballMesh = MeshResource.generateBox(size: Float(ARViewController.shared.selectedSize))
-//        let condition2: String = "\(condition).mp4"
         
         if ARViewController.shared.selectedModel == 0 {
             ballMesh = MeshResource.generateSphere(radius: Float(ARViewController.shared.selectedSize))
         }
         
         //VideoMaterial
-  
         let videoItem = createVideoItem (with: condition)
-     print("condition2 \(condition)")
         let videoMaterial = createVideoMaterial (with: videoItem!)
-        
-        
         //ModelEntity
         let ballModel = ModelEntity(mesh: ballMesh, materials: [videoMaterial])
         
@@ -57,7 +48,7 @@ public class WeatherARModelManager {
     
     private func createVideoItem (with fileName: String) -> AVPlayerItem?{
   
-        //URL, la fuente es el fileName, que es igual a condition
+        //URL
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp4") else { return nil }
         
         //Video Item
