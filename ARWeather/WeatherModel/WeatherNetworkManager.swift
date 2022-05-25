@@ -16,35 +16,35 @@ public class weatherNetworkManager: ObservableObject {
     public func fetchData (cityName: String){
         
         let weatherURLString = "\(weatherURL)&q=\(cityName)"
-
+        
         //URL
         if let url = URL(string: weatherURLString) {
-           
-   
-        //URL Session
-        let session = URLSession(configuration: .default)
-        //FEtching task
-        let task = session.dataTask(with: url) { (data, response, error) in
-            //Error handle
             
-            if error != nil {
-                fatalError("\(String(describing: error?.localizedDescription))")
-            }
             
-            //Parse JSON to a readable version
-            if let receivedData = data {
+            //URL Session
+            let session = URLSession(configuration: .default)
+            //FEtching task
+            let task = session.dataTask(with: url) { (data, response, error) in
+                //Error handle
                 
-                //Decoded
-                if let decodedata = self.decodeJASONData(receivedData: receivedData){
-                    //Convert to usable form
-                    let weatherData = self.convertDecodedDataToUsableForm(decodedData: decodedata)
-                    //Pass the data to the main view
-                    self.passData(weatherData: weatherData)
+                if error != nil {
+                    fatalError("\(String(describing: error?.localizedDescription))")
                 }
                 
-    
+                //Parse JSON to a readable version
+                if let receivedData = data {
+                    
+                    //Decoded
+                    if let decodedata = self.decodeJASONData(receivedData: receivedData){
+                        //Convert to usable form
+                        let weatherData = self.convertDecodedDataToUsableForm(decodedData: decodedata)
+                        //Pass the data to the main view
+                        self.passData(weatherData: weatherData)
+                    }
+                    
+                    
+                }
             }
-        }
             task.resume()
             
         }
@@ -61,12 +61,12 @@ public class weatherNetworkManager: ObservableObject {
         } catch {
             return nil
         }
-      
+        
     }
     
     private func convertDecodedDataToUsableForm (decodedData: WeatherData) -> WeatherModel {
         let weatherData = WeatherModel(cityName: decodedData.name, temperature: decodedData.main.temp, conditionID: decodedData.weather[0].id)
-    
+        
         return weatherData
     }
     //Pass it to the main view

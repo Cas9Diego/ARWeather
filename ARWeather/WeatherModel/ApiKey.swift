@@ -14,8 +14,6 @@ struct ApiKey {
         let theKey = ""
         
         return theKey
-        
     }
-    
 }
 

@@ -19,12 +19,11 @@ public class WeatherARModelManager {
         temperatureText.setPosition(SIMD3<Float>(x:-0.2, y:Float(ARViewController.shared.selectedSize+0.02), z:0), relativeTo: conditionModel)
         
         //Name
-        
         conditionModel.name = "WeatherBall \(ARViewController.shared.Taps+1)"
         
         return conditionModel
-
-        }
+        
+    }
     //Create Ball and text
     // First create de ball
     private func weatherConditionModel (condition: String) -> ModelEntity{
@@ -47,7 +46,7 @@ public class WeatherARModelManager {
     }
     
     private func createVideoItem (with fileName: String) -> AVPlayerItem?{
-  
+        
         //URL
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp4") else { return nil }
         
@@ -83,14 +82,10 @@ public class WeatherARModelManager {
         let textEntity = ModelEntity (mesh: mesh, materials: [material])
         
         if  ARViewController.shared.selectedSize <= 0.5 {
-        textEntity.scale = SIMD3<Float>(x: 0.03, y: 0.03, z: 0.1)
+            textEntity.scale = SIMD3<Float>(x: 0.03, y: 0.03, z: 0.1)
         } else {
             textEntity.scale = SIMD3<Float>(x: 0.06, y: 0.06, z: 0.2)
         }
-        
         return textEntity
     }
-    
-    
-    
 }

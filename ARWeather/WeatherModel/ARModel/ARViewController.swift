@@ -22,8 +22,8 @@ final class ARViewController : ObservableObject {
     @Published var backTaps = 0 //Number of "eliminate recent"
     @Published var furtherTaps = 0 //Number of new taps after eliminate recent
     @Published var selectedModel = 0 //Chosen body
-    @Published var selectedSize = 0.1
-
+    @Published var selectedSize = 0.1 //Size of body
+    
     init (){
         arView = ARView(frame: .zero)
         
@@ -77,10 +77,9 @@ final class ARViewController : ObservableObject {
             Taps=Taps+1
         }
     }
- 
+    
     func placeObject(object modelEntity: ModelEntity, at position: SIMD3<Float>){
-        //         This function puts the modelEntity in a 3D location in the real world (SIMD3)
-        //     let modelEntity2 = try! ModelEntity.loadModel(named: "Experience.usdz")
+        //   This function puts the modelEntity in a 3D location in the real world (SIMD3)
         //1- Create anchor at 3D position
         let weatherModelAnchor = AnchorEntity(world: position)
         //2- Tie model to anchor
@@ -109,14 +108,12 @@ final class ARViewController : ObservableObject {
         if EliminateProperties == true {
             
             if Taps > 0 {
- 
+                
                 arView.scene.findEntity(named: "WeatherBall \(Taps)")?.removeFromParent()
                 Taps = Taps-1
                 EliminateProperties = false
             }
-            
         }
-        
     }
     func elimination () {
         
@@ -127,10 +124,8 @@ final class ARViewController : ObservableObject {
                     
                     EliminateAllProperties = false
                     Taps = 0
-                    
                 }
             }
- 
         }
     }
 }
